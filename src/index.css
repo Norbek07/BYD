@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-obsidian-950 text-silver-100 font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-neon-500/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-obsidian-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-obsidian-500 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-700;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-gradient-to-br from-white/[0.07] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply transition-all duration-500 hover:border-neon-400/40 hover:shadow-[0_0_40px_-8px_rgba(34,211,238,0.3)] hover:-translate-y-1;
+  }
+
+  .neon-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-neon-300 via-neon-400 to-neon-500;
+  }
+
+  .neon-border {
+    @apply border border-neon-400/30 shadow-[0_0_20px_-4px_rgba(34,211,238,0.4)];
+  }
+
+  .btn-primary {
+    @apply px-7 py-3.5 rounded-xl font-display font-medium text-obsidian-950 bg-gradient-to-r from-neon-300 to-neon-500 hover:from-neon-200 hover:to-neon-400 transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(34,211,238,0.6)] hover:scale-[1.02] active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply px-7 py-3.5 rounded-xl font-display font-medium text-silver-100 glass hover:border-neon-400/40 transition-all duration-300 hover:scale-[1.02] active:scale-95;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .gradient-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-neon-400/50 to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .radial-fade {
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl bg-obsidian-800/60 border border-white/10 text-sm text-white placeholder-silver-500 outline-none transition-all duration-300;
+  }
+  .form-input:focus {
+    @apply border-neon-400/50 bg-obsidian-800 shadow-[0_0_20px_-8px_rgba(34,211,238,0.4)];
+  }
+  .form-input::placeholder {
+    @apply text-silver-500;
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    @apply bg-obsidian-500 rounded-full;
+  }
+
+  .range-neon {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .range-neon::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #67e8f9, #0891b2);
+    cursor: pointer;
+    box-shadow: 0 0 15px -2px rgba(34, 211, 238, 0.6);
+    border: 2px solid #0c0f17;
+    transition: transform 0.2s;
+  }
+  .range-neon::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .range-neon::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #67e8f9, #0891b2);
+    cursor: pointer;
+    box-shadow: 0 0 15px -2px rgba(34, 211, 238, 0.6);
+    border: 2px solid #0c0f17;
+  }
+}
